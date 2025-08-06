@@ -1,0 +1,67 @@
+<?php
+    $errors = [];
+    // =========================================
+    // condition qui contient la logique de traitement du formulaire quand on recoit une request POST
+    // ==========================================
+    if ($_SERVER["REQUEST_METHOD"] === "POST"){
+        //recuperation des données du formulaire
+        //nettoyage des données du formulaire
+        $username = trim(htmlspecialchars($_POST["username"]) ?? '');
+        $email = trim(htmlspecialchars($_POST["email"]) ?? '');
+        $password = $_POST["password"] ?? '';
+        $confirmPassword = $_POST["confirmPassword"] ?? '';
+
+        var_dump(strlen($username));
+     
+        //validation username
+        //valide que le champ soit remplis
+        if (empty($username)) {
+            $errors[] = "nom obligatoire !";
+        //valide avec la function strlen si la string est de plus de 3 carac
+        }elseif (strlen($username) < 3) {
+            $errors[] = "mini 3 carac";
+        //valide avec la function strlen si la string est de moins de 55 carac
+        }elseif (strlen($username) > 55) {
+            $errors[] = "max 55 carac";
+        }
+        var_dump($errors);
+        //validation email
+
+        //validation password
+    }
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section>
+        <form action="" method="POST">
+            <div>
+                <label for="username">Pseudo</label>
+                <input type="text" id="username" name="username" placeholder="Entrez votre pseudo" required>
+            </div>
+            <div>
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" required placeholder="Entrez votre email">
+            </div>
+            <div>
+                <label for="password">password</label>
+                <input type="password" name="password" id="password" required placeholder="entrer votre mdp">
+            </div>
+            <div>
+                <label for="confirmPassword">confirmer password</label>
+                <input type="password" name="confirmPassword" id="confirmPassword" required placeholder="confirmer votre mdp">
+            </div>
+            <div>
+                <input type="submit" value="envoyer">
+            </div>
+        </form>
+    </section>
+</body>
+</html>
