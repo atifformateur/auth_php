@@ -38,6 +38,7 @@
         }elseif ( $password !== $confirmPassword ) {
             $errors[] = "mot de passe doivent etre identique";
         }
+        //william
 
         
     }
