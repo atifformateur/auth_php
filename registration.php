@@ -30,6 +30,14 @@
         }
 
         //validation password
+        if (empty($password)) {
+            $errors[] = "password obligatoire";
+        }elseif ( strlen($password) < 3 ) {
+            $errors[] = "password trop juste";
+            // normalement ici on met un pattern pour le mdp
+        }elseif ( $password !== $confirmPassword ) {
+            $errors[] = "mot de passe doivent etre identique";
+        }
     }
 ?>
 
