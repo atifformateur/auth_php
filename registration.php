@@ -11,8 +11,6 @@
         $password = $_POST["password"] ?? '';
         $confirmPassword = $_POST["confirmPassword"] ?? '';
 
-        var_dump(strlen($username));
-     
         //validation username
         //valide que le champ soit remplis
         if (empty($username)) {
@@ -24,8 +22,12 @@
         }elseif (strlen($username) > 55) {
             $errors[] = "max 55 carac";
         }
-        var_dump($errors);
         //validation email
+        if (empty($email)) {
+            $errors[] = "email obligatoire ! ( connard )";
+        }elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)){
+            $errors[] = "votre adresse ne correspond au format mail classique";
+        }
 
         //validation password
     }
