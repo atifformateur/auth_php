@@ -1,4 +1,6 @@
 <?php
+    require_once 'config/database.php';
+
     $errors = [];
     // =========================================
     // condition qui contient la logique de traitement du formulaire quand on recoit une request POST
@@ -38,7 +40,18 @@
         }elseif ( $password !== $confirmPassword ) {
             $errors[] = "mot de passe doivent etre identique";
         }
-        //william
+        
+        if (empty($errors)) {
+            $pdo = dbConnexion();
+            
+            
+
+            // try {
+                
+            // } catch () {
+                
+            // }
+        }
 
         
     }
