@@ -48,8 +48,21 @@
             //verifier si l'adresse mail est utilisé ou non
             $checkEmail = $pdo->prepare("SELECT id FROM users WHERE email = ?");
 
+            //la methode execute de mon objet pdo execute la request préparée
             $checkEmail->execute([$email]);
-            var_dump('hello');
+
+            //une condition pour vérifier si je recupere quelque chose
+            if ($checkEmail->rowCount() > 0) {
+                $errors[] = "email déja utilisé";
+            } else {
+                //dans le cas ou tout va bien ! email pas utilisé
+
+                //hashage du mdp
+                $hashPassword = password_hash($password, PASSWORD_DEFAULT);
+
+                var_dump($hashPassword);
+
+            }
             // try {
                 
             // } catch () {
