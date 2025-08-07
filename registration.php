@@ -71,6 +71,9 @@
                 $insertUser->execute([$username, $email, $hashPassword]);
 
                 $message = "super mega cool vous êtes enregistré $username";
+
+                header('location: login.php');
+                exit();
             }
             // try {
                 
