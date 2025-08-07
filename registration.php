@@ -57,11 +57,19 @@
             } else {
                 //dans le cas ou tout va bien ! email pas utilisé
 
-                //hashage du mdp
+                //hashage du mdp avec la fonction password_hash
                 $hashPassword = password_hash($password, PASSWORD_DEFAULT);
 
-                var_dump($hashPassword);
+                //insertion des données en db
+                // INSERT INTO users (username, email, password)VALUES ("atif","atif@gmail.com","lijezfoifjerlkjf")
+                $insertUser = $pdo->prepare("
+                INSERT INTO users (username, email, password) 
+                VALUES (?, ?, ?)
+                ");
 
+                $insertUser->execute([$username, $email, $hashPassword]);
+
+                var_dump('inshallah ca marche');
             }
             // try {
                 
