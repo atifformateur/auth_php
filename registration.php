@@ -2,6 +2,7 @@
     require_once 'config/database.php';
 
     $errors = [];
+    $message = "";
     // =========================================
     // condition qui contient la logique de traitement du formulaire quand on recoit une request POST
     // ==========================================
@@ -69,7 +70,7 @@
 
                 $insertUser->execute([$username, $email, $hashPassword]);
 
-                var_dump('inshallah ca marche');
+                $message = "super mega cool vous êtes enregistré $username";
             }
             // try {
                 
@@ -96,6 +97,9 @@
             <?php
                 foreach ($errors as $error) {
                     echo $error;
+                }
+                if(!empty($message)) {
+                    echo $message;
                 }
             ?>
             <div>
