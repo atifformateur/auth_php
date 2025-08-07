@@ -27,7 +27,7 @@ function dbConnexion() {
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         //comment me renvoyer les données
         $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-        var_dump($pdo);
+
         return $pdo;
 
     } catch (PDOException $e) {

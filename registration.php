@@ -42,10 +42,14 @@
         }
         
         if (empty($errors)) {
+            //logique de traitement en db
             $pdo = dbConnexion();
-            
-            
 
+            //verifier si l'adresse mail est utilisé ou non
+            $checkEmail = $pdo->prepare("SELECT id FROM users WHERE email = ?");
+
+            $checkEmail->execute([$email]);
+            var_dump('hello');
             // try {
                 
             // } catch () {
