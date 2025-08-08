@@ -64,8 +64,8 @@
                 //insertion des données en db
                 // INSERT INTO users (username, email, password)VALUES ("atif","atif@gmail.com","lijezfoifjerlkjf")
                 $insertUser = $pdo->prepare("
-                INSERT INTO users (username, email, password) 
-                VALUES (?, ?, ?)
+                    INSERT INTO users (username, email, password) 
+                    VALUES (?, ?, ?)
                 ");
 
                 $insertUser->execute([$username, $email, $hashPassword]);

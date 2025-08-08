@@ -21,3 +21,15 @@ input {
     margin: 6px 0;
     background-color: aqua;
 }
+nav > ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+}
+a{
+    text-decoration: none;
+}
+li{
+    list-style-type: none;
+}
